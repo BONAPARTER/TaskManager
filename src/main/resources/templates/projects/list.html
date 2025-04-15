@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Проекты</title>
+    <link href="/styles.css" rel="stylesheet">
+</head>
+<body>
+<header>
+    <h1>Система учета задач</h1>
+    <nav>
+        <a href="/projects">Проекты</a>
+        <a href="/tasks">Задачи</a>
+        <a href="/users">Исполнители</a>
+    </nav>
+</header>
+<main>
+    <h2>Список проектов</h2>
+    <a href="/projects/add">Добавить проект</a>
+    <table>
+        <thead>
+        <tr>
+            <th>Название</th>
+            <th>Описание</th>
+            <th>Действия</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="project : ${projects}">
+            <td th:text="${project.name}"></td>
+            <td th:text="${project.description}"></td>
+            <td>
+                <a th:href="@{/tasks/project/{id}(id=${project.id})}">Задачи</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</main>
+</body>
+</html>
