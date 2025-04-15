@@ -1,10 +1,38 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Пользователи</title>
+    <link href="/css/styles.css" rel="stylesheet">
 </head>
 <body>
-
+<header>
+    <h1>Система учета задач</h1>
+    <nav>
+        <a href="/projects">Проекты</a>
+        <a href="/tasks">Задачи</a>
+        <a href="/users">Исполнители</a>
+    </nav>
+</header>
+<main>
+    <h2>Список пользователей</h2>
+    <a href="/users/add">Добавить пользователя</a>
+    <table>
+        <thead>
+        <tr>
+            <th>Имя пользователя</th>
+            <th>Email</th>
+            <th>Роль</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="user : ${users}">
+            <td th:text="${user.username}"></td>
+            <td th:text="${user.email}"></td>
+            <td th:text="${user.role}"></td>
+        </tr>
+        </tbody>
+    </table>
+</main>
 </body>
 </html>

@@ -1,10 +1,39 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Добавить пользователя</title>
+    <link href="/css/styles.css" rel="stylesheet">
 </head>
 <body>
+<header>
+    <h1>Система учета задач</h1>
+    <nav>
+        <a href="/projects">Проекты</a>
+        <a href="/tasks">Задачи</a>
+        <a href="/users">Исполнители</a>
+    </nav>
+</header>
+<main>
+    <h2>Добавить пользователя</h2>
+    <form th:action="@{/users/add}" method="post">
+        <label for="username">Имя пользователя:</label><br>
+        <input type="text" id="username" name="username" required><br><br>
 
+        <label for="email">Email:</label><br>
+        <input type="email" id="email" name="email" required><br><br>
+
+        <label for="password">Пароль:</label><br>
+        <input type="password" id="password" name="password" required><br><br>
+
+        <label for="role">Роль:</label><br>
+        <select id="role" name="role" required>
+            <option value="USER">USER</option>
+            <option value="ADMIN">ADMIN</option>
+        </select><br><br>
+
+        <button type="submit">Сохранить</button>
+    </form>
+</main>
 </body>
 </html>
